@@ -1,6 +1,6 @@
 ### Easy-Pay
 
-![logo]()
+![logo](https://github.com/easy-pay/easy-pay/blob/master/logo.jpg)
 
 
 ### 支付宝
