@@ -3,6 +3,11 @@
 <img src="https://github.com/easy-pay/easy-pay/blob/master/logo.jpg" width="700" height="150" alt="logo"/>
 
 
+
+### 各种框架使用Easy-Pay的Demo
+
+- [SpringBoot使用Easy-Pay的Demo](https://github.com/easy-pay/spring-boot-easy-pay-demo)
+
 ### 支付宝
 
 ##### 二维码生成
