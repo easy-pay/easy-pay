@@ -1,6 +1,6 @@
 ### Easy-Pay
 
-让支付变得更简单
+![logo]()
 
 
 ### 支付宝
@@ -12,7 +12,7 @@
 
 | 名称   | 类型 | 是否必须| 参数描述
 | :----: | :---: | :---: | :---:
-| outTradeNo  |String|  必须  |   商户订单号（不可重复，重复就会显示二维码失效）
+| outTradeNo  |String|  必须  |  商户订单号
 | subject  |String|  必须  |   订单标题
 | totalAmount  |String|  必须  |   订单金额
 
