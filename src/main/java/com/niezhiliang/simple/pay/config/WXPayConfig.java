@@ -1,6 +1,5 @@
 package com.niezhiliang.simple.pay.config;
 
-import com.github.binarywang.wxpay.config.WxPayConfig;
 import com.niezhiliang.simple.pay.utils.ConfigUtils;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import lombok.Data;
@@ -8,15 +7,9 @@ import lombok.ToString;
 import org.ho.yaml.Yaml;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * @Author NieZhiLiang
@@ -78,9 +71,11 @@ public class WXPayConfig {
     private String certName;
 
     public static WXPayConfig getInstance() {
-        if (wxPayConfig == null) {
-            wxPayConfig = new WXPayConfig();
+        if (wxPayConfig != null) {
+            return wxPayConfig;
         }
+        long start = System.currentTimeMillis();
+        wxPayConfig = new WXPayConfig();
         //获取更目录下的application.yml文件
         InputStream inputStream = AlipayConfig.class.getClassLoader().getResourceAsStream("application.yml");
         //如果没有yml文件则去读取properties文件
@@ -99,6 +94,7 @@ public class WXPayConfig {
                 JsonUtils.mapToObject(map,wxPayConfig);
             }
         }
+        System.out.println("微信读取配置的时间："+(System.currentTimeMillis()-start));
         return wxPayConfig;
     }
 }

@@ -21,7 +21,7 @@ public class PayUtils {
      * @param pcPayDTO
      * @return
      */
-    public static String pcPay(AlipayPcPayDTO pcPayDTO) {
+    public static String alpayPcPay(AlipayPcPayDTO pcPayDTO) {
         PayContent<String,AlipayPcPayDTO> payContent = new PayContent(new AliPayPcPayStrategy());
         return payContent.execute(pcPayDTO);
     }
@@ -31,8 +31,8 @@ public class PayUtils {
      * @param qrcodeDTO
      * @return
      */
-    public static QrcodeVO alipayQrcode(AlipayQrcodeDTO qrcodeDTO) {
-        PayContent<QrcodeVO,AlipayQrcodeDTO> payContent = new PayContent(new AlipayQrcodeStrategy());
+    public static AlipayQrcodeVO alipayQrcode(AlipayQrcodeDTO qrcodeDTO) {
+        PayContent<AlipayQrcodeVO,AlipayQrcodeDTO> payContent = new PayContent(new AlipayQrcodeStrategy());
         return payContent.execute(qrcodeDTO);
     }
 
@@ -41,8 +41,8 @@ public class PayUtils {
      * @param alipayRefundDTO
      * @return
      */
-    public static RefundVO alipayRefund(AlipayRefundDTO alipayRefundDTO) {
-        PayContent<RefundVO,AlipayRefundDTO> payContent = new PayContent(new AliPayRefundStrategy());
+    public static AlipayRefundVO alipayRefund(AlipayRefundDTO alipayRefundDTO) {
+        PayContent<AlipayRefundVO,AlipayRefundDTO> payContent = new PayContent(new AliPayRefundStrategy());
         return payContent.execute(alipayRefundDTO);
     }
 
@@ -51,8 +51,8 @@ public class PayUtils {
      * @param request
      * @return
      */
-    public static Boolean alipayPayCallBack(HttpServletRequest request) {
-        PayContent<Boolean,HttpServletRequest> payContent = new PayContent(new AliPayCallBackStrategy());
+    public static AlipayCallBackVO alipayPayCallBack(HttpServletRequest request) {
+        PayContent<AlipayCallBackVO,HttpServletRequest> payContent = new PayContent(new AliPayCallBackStrategy());
         return payContent.execute(request);
 
     }
@@ -62,8 +62,8 @@ public class PayUtils {
      * @param wxQrcodeDTO
      * @return
      */
-    public static WxPayQrcodeVO wxpayQrcode(WXQrcodeDTO wxQrcodeDTO) {
-        PayContent<WxPayQrcodeVO,WXQrcodeDTO> payContent = new PayContent(new WXQrcodeStrategy());
+    public static WxpayQrcodeVO wxpayQrcode(WxpayQrcodeDTO wxQrcodeDTO) {
+        PayContent<WxpayQrcodeVO,WxpayQrcodeDTO> payContent = new PayContent(new WxpayQrcodeStrategy());
         return payContent.execute(wxQrcodeDTO);
     }
 
@@ -72,8 +72,8 @@ public class PayUtils {
      * @param request
      * @return
      */
-    public static WxCallBackVO wxpayNotify(HttpServletRequest request) {
-        PayContent<WxCallBackVO,HttpServletRequest> payContent = new PayContent(new WxPayNotifyStrategy());
+    public static WxpayCallBackVO wxpayNotify(HttpServletRequest request) {
+        PayContent<WxpayCallBackVO,HttpServletRequest> payContent = new PayContent(new WxpayNotifyStrategy());
         return payContent.execute(request);
     }
 
@@ -82,8 +82,8 @@ public class PayUtils {
      * @param wxCloseOrderDTO
      * @return
      */
-    public static WxPayCloseOrderVO wxpayCloseOrder(WXCloseOrderDTO wxCloseOrderDTO) {
-        PayContent<WxPayCloseOrderVO,WXCloseOrderDTO> payContent = new PayContent(new WXCloseOrderStrategy());
+    public static WxpayCloseOrderVO wxpayCloseOrder(WXCloseOrderDTO wxCloseOrderDTO) {
+        PayContent<WxpayCloseOrderVO,WXCloseOrderDTO> payContent = new PayContent(new WxpayCloseOrderStrategy());
         return payContent.execute(wxCloseOrderDTO);
     }
 
@@ -92,8 +92,8 @@ public class PayUtils {
      * @param wxRefundDTO
      * @return
      */
-    public static WxPayCloseOrderVO wxRefund(WXRefundDTO wxRefundDTO){
-        PayContent<WxPayCloseOrderVO,WXRefundDTO> payContent = new PayContent(new WXRefundStrategy());
+    public static WxpayRefundVO wxRefund(WxpayRefundDTO wxRefundDTO){
+        PayContent<WxpayRefundVO,WxpayRefundDTO> payContent = new PayContent(new WxpayRefundStrategy());
         return payContent.execute(wxRefundDTO);
     }
 
@@ -102,18 +102,9 @@ public class PayUtils {
      * @param wxRefundQueryDTO
      * @return
      */
-    public static WxRefundQueryVO  wxRefundQuery(WxRefundQueryDTO wxRefundQueryDTO) {
-        PayContent<WxRefundQueryVO,WxRefundQueryDTO> payContent = new PayContent(new WxRefundQueryStrategy());
+    public static WxpayRefundQueryVO wxRefundQuery(WxpayRefundQueryDTO wxRefundQueryDTO) {
+        PayContent<WxpayRefundQueryVO,WxpayRefundQueryDTO> payContent = new PayContent(new WxpayRefundQueryStrategy());
         return payContent.execute(wxRefundQueryDTO);
-    }
-
-    public static void main(String[] args) {
-        int a = new Random().nextInt(100000000);
-        WXQrcodeDTO dto = new WXQrcodeDTO();
-        dto.setOut_trade_no("123456654321");
-        dto.setBody("测试支付");
-        dto.setTotal_fee(1);
-        System.out.println(PayUtils.wxpayQrcode(dto));
     }
 
 }

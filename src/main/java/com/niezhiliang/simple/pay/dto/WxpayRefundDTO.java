@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @XStreamAlias("xml")
 @Data
-public class WXRefundDTO extends WXBaseDTO {
+public class WxpayRefundDTO extends WxpayBaseDTO {
 
     @XStreamAlias("out_trade_no")
     private String outTradeNo;

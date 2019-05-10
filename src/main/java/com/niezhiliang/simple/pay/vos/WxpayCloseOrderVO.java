@@ -11,6 +11,6 @@ import java.io.Serializable;
  * @Date 2019/4/30 下午2:16
  */
 @XStreamAlias("xml")
-public class WxPayCloseOrderVO extends BaseWxPayResult implements Serializable {
+public class WxpayCloseOrderVO extends BaseWxPayResult implements Serializable {
 
 }

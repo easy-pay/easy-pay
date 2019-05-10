@@ -1,6 +1,7 @@
 package com.niezhiliang.simple.pay.utils;
 
 import com.niezhiliang.simple.pay.config.WXPayConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
@@ -23,6 +24,7 @@ import java.security.KeyStore;
  * @Email nzlsgg@163.com
  * @Date 2019/4/29 下午2:11
  */
+@Slf4j
 public class HttpUtils {
     /**
      * post请求（用于请求xml格式的参数）
@@ -86,6 +88,9 @@ public class HttpUtils {
          */
         KeyStore keyStore  = KeyStore.getInstance("PKCS12");
         InputStream instream = HttpUtils.class.getClassLoader().getResourceAsStream(WXPayConfig.getInstance().getCertName());
+        if(instream == null) {
+            log.error("证书未找到，请保证项目根目录下存在名为【{}】的证书文件",WXPayConfig.getInstance().getCertName());
+        }
         try {
             keyStore.load(instream, WXPayConfig.getInstance().getMchId().toCharArray());
         } finally {

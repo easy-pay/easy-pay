@@ -6,7 +6,7 @@ import com.niezhiliang.simple.pay.config.WXPayConfig;
 import com.niezhiliang.simple.pay.dto.WXCloseOrderDTO;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
-import com.niezhiliang.simple.pay.vos.WxPayCloseOrderVO;
+import com.niezhiliang.simple.pay.vos.WxpayCloseOrderVO;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -16,16 +16,15 @@ import lombok.extern.slf4j.Slf4j;
  * 微信关闭订单
  */
 @Slf4j
-public class WXCloseOrderStrategy implements PayStrategy<WxPayCloseOrderVO,WXCloseOrderDTO> {
+public class WxpayCloseOrderStrategy implements PayStrategy<WxpayCloseOrderVO,WXCloseOrderDTO> {
 
     @Override
-    public WxPayCloseOrderVO operate(WXCloseOrderDTO wxCloseOrderDTO) {
+    public WxpayCloseOrderVO operate(WXCloseOrderDTO wxCloseOrderDTO) {
         log.info("微信关闭订单号：{}", wxCloseOrderDTO.getOutTradeNo());
-        wxCloseOrderDTO.setAppid(WXPayConfig.getInstance().getAppId());
-        wxCloseOrderDTO.setMch_id(WXPayConfig.getInstance().getMchId());
-        wxCloseOrderDTO.setNonce_str(wxCloseOrderDTO.getOutTradeNo());
+        wxCloseOrderDTO.setAppId(WXPayConfig.getInstance().getAppId());
+        wxCloseOrderDTO.setMchId(WXPayConfig.getInstance().getMchId());
+        wxCloseOrderDTO.setNonceStr(wxCloseOrderDTO.getOutTradeNo());
         wxCloseOrderDTO.setSign(null);
-
         wxCloseOrderDTO.setSign(SignUtils.createSign(wxCloseOrderDTO, "MD5", WXPayConfig.getInstance().getMchKey(), new String[0]));
         String xml = XmlUtils.toXML(wxCloseOrderDTO);
         String responseContent = null;
@@ -35,6 +34,6 @@ public class WXCloseOrderStrategy implements PayStrategy<WxPayCloseOrderVO,WXClo
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return WxPayCloseOrderVO.fromXML(responseContent,WxPayCloseOrderVO.class);
+        return WxpayCloseOrderVO.fromXML(responseContent,WxpayCloseOrderVO.class);
     }
 }

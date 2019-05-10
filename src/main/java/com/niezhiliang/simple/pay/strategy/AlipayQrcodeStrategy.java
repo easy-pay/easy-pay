@@ -9,7 +9,7 @@ import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.dto.AlipayQrcodeDTO;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
-import com.niezhiliang.simple.pay.vos.QrcodeVO;
+import com.niezhiliang.simple.pay.vos.AlipayQrcodeVO;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * 二维码生成策略
  */
 @Slf4j
-public class AlipayQrcodeStrategy implements PayStrategy<QrcodeVO,AlipayQrcodeDTO> {
+public class AlipayQrcodeStrategy implements PayStrategy<AlipayQrcodeVO,AlipayQrcodeDTO> {
 
     /**
      * 支付宝生成二维码
@@ -27,7 +27,7 @@ public class AlipayQrcodeStrategy implements PayStrategy<QrcodeVO,AlipayQrcodeDT
      * @return
      */
     @Override
-    public QrcodeVO operate(AlipayQrcodeDTO alipayQrcodeDTO) {
+    public AlipayQrcodeVO operate(AlipayQrcodeDTO alipayQrcodeDTO) {
         AlipayClient alipayClient = AlipayConfig.getAlipayClient();
         AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
         request.setBizContent(JsonUtils.jsonFormat(alipayQrcodeDTO));
@@ -41,7 +41,7 @@ public class AlipayQrcodeStrategy implements PayStrategy<QrcodeVO,AlipayQrcodeDT
         }
         JSONObject qrcodeResponse = JSON.parseObject(alipayTradePrecreateResponse.getBody());
 
-        QrcodeVO qrcodeVO = qrcodeResponse.getObject("alipay_trade_precreate_response",QrcodeVO.class);
+        AlipayQrcodeVO qrcodeVO = qrcodeResponse.getObject("alipay_trade_precreate_response",AlipayQrcodeVO.class);
 
         return qrcodeVO;
     }

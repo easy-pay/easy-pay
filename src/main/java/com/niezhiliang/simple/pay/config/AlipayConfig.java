@@ -93,9 +93,11 @@ public class AlipayConfig {
 
 
     public static AlipayConfig getInstance() {
-        if (alipayConfig == null) {
-            alipayConfig = new AlipayConfig();
+        if (alipayConfig != null) {
+           return alipayConfig;
         }
+        long start = System.currentTimeMillis();
+        alipayConfig = new AlipayConfig();
         //获取更目录下的application.yml文件
         InputStream inputStream = AlipayConfig.class.getClassLoader().getResourceAsStream("application.yml");
 
@@ -114,6 +116,7 @@ public class AlipayConfig {
                 e.printStackTrace();
             }
         }
+        System.out.println("支付宝读取配置的时间："+(System.currentTimeMillis()-start));
         return alipayConfig;
     }
 
@@ -131,9 +134,5 @@ public class AlipayConfig {
 
         return alipayClient;
 
-    }
-
-    public static void main(String[] args) {
-        System.out.println(AlipayConfig.getInstance());
     }
 }

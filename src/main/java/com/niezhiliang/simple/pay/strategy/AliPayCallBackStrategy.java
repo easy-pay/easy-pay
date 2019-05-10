@@ -5,7 +5,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
-import com.niezhiliang.simple.pay.vos.AliPayCallBackVO;
+import com.niezhiliang.simple.pay.vos.AlipayCallBackVO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Map;
  * @Date 2019/4/27 下午2:25
  * 支付回调策略
  */
-public class AliPayCallBackStrategy implements PayStrategy<AliPayCallBackVO,HttpServletRequest>{
+public class AliPayCallBackStrategy implements PayStrategy<AlipayCallBackVO,HttpServletRequest>{
 
     /**
      * 支付成功返回的状态值
@@ -34,9 +34,9 @@ public class AliPayCallBackStrategy implements PayStrategy<AliPayCallBackVO,Http
      * @return
      */
     @Override
-    public AliPayCallBackVO operate(HttpServletRequest request) {
+    public AlipayCallBackVO operate(HttpServletRequest request) {
         Map<String, String> map = JsonUtils.requestToMap(request);
-        AliPayCallBackVO aliPayCallBackVO = null;
+        AlipayCallBackVO aliPayCallBackVO = null;
         try {
             //验签
             boolean flag = AlipaySignature.rsaCheckV1(map,AlipayConfig.getInstance().getPublicKey() ,AlipayConfig.getInstance().getCharset(),
@@ -46,7 +46,7 @@ public class AliPayCallBackStrategy implements PayStrategy<AliPayCallBackVO,Http
             if (!flag) {
                throw new RuntimeException("Alipay payment callback sign check failed");
             }
-            aliPayCallBackVO = (AliPayCallBackVO) JsonUtils.mapToObject(map,AliPayCallBackVO.class);
+            aliPayCallBackVO = JSON.parseObject(json,AlipayCallBackVO.class);
             //判断订单的支付结果
             if (SUCCESS_PAY_STATUS.equals(aliPayCallBackVO.getTrade_status())){
                 aliPayCallBackVO.setShouldResonse(SUCCESS);

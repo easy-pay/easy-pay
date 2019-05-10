@@ -9,7 +9,7 @@ import java.util.Date;
  * @Date 2019/5/7 下午2:37
  */
 @Data
-public class WxCallBackVO {
+public class WxpayCallBackVO {
 
     /**
      * 商户的订单号
@@ -44,7 +44,7 @@ public class WxCallBackVO {
     /**
      * 订单金额
      */
-    private Integer totalFee;
+    private String totalFee;
 
     /**
      * 签名结果，true表示签名通过
@@ -58,7 +58,7 @@ public class WxCallBackVO {
 
     @Override
     public String toString() {
-        return "WxCallBackVO{" +
+        return "WxpayCallBackVO{" +
                 "outTradeNo='" + outTradeNo + '\'' +
                 ", transactionId='" + transactionId + '\'' +
                 ", nonceStr='" + nonceStr + '\'' +

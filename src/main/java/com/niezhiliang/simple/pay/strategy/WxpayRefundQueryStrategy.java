@@ -1,14 +1,15 @@
 package com.niezhiliang.simple.pay.strategy;
 
-import com.github.binarywang.wxpay.bean.result.WxPayRefundQueryResult;
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.APIURLENUMS;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
-import com.niezhiliang.simple.pay.dto.WxRefundQueryDTO;
+import com.niezhiliang.simple.pay.dto.WxpayRefundQueryDTO;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
-import com.niezhiliang.simple.pay.vos.WxRefundQueryVO;
+import com.niezhiliang.simple.pay.vos.WxpayRefundQueryVO;
 import lombok.extern.slf4j.Slf4j;
+
+import java.math.BigDecimal;
 
 /**
  * @Author NieZhiLiang
@@ -17,16 +18,16 @@ import lombok.extern.slf4j.Slf4j;
  * 退款查询
  */
 @Slf4j
-public class WxRefundQueryStrategy implements PayStrategy<WxRefundQueryVO,WxRefundQueryDTO> {
+public class WxpayRefundQueryStrategy implements PayStrategy<WxpayRefundQueryVO,WxpayRefundQueryDTO> {
 
     @Override
-    public WxRefundQueryVO operate(WxRefundQueryDTO wxRefundQueryDTO) {
+    public WxpayRefundQueryVO operate(WxpayRefundQueryDTO wxRefundQueryDTO) {
         log.info("微信退款查询订单号：{}", wxRefundQueryDTO.getOutTradeNo());
 
         WXPayConfig wxPayConfig = WXPayConfig.getInstance();
-        wxRefundQueryDTO.setAppid(wxPayConfig.getAppId());
-        wxRefundQueryDTO.setMch_id(wxPayConfig.getMchId());
-        wxRefundQueryDTO.setNonce_str(wxRefundQueryDTO.getOutTradeNo());
+        wxRefundQueryDTO.setAppId(wxPayConfig.getAppId());
+        wxRefundQueryDTO.setMchId(wxPayConfig.getMchId());
+        wxRefundQueryDTO.setNonceStr(wxRefundQueryDTO.getOutTradeNo());
         wxRefundQueryDTO.setSign(SignUtils.createSign(wxRefundQueryDTO, "MD5", wxPayConfig.getMchKey(), new String[0]));
         String xml = XmlUtils.toXML(wxRefundQueryDTO);
         String responseContent = null;
@@ -36,6 +37,11 @@ public class WxRefundQueryStrategy implements PayStrategy<WxRefundQueryVO,WxRefu
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return WxRefundQueryVO.fromXML(responseContent,WxRefundQueryVO.class);
+        WxpayRefundQueryVO wxpayRefundQueryVO = WxpayRefundQueryVO.fromXML(responseContent,WxpayRefundQueryVO.class);
+        if (wxpayRefundQueryVO.getResultCode().equals("SUCCESS")) {
+            wxpayRefundQueryVO.setRefundFee(new BigDecimal(wxpayRefundQueryVO.getRefundFee()).divide(new BigDecimal("100")).floatValue()+"");
+        }
+
+        return wxpayRefundQueryVO;
     }
 }

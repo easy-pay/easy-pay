@@ -4,7 +4,7 @@ package com.niezhiliang.simple.pay.strategy;
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyResult;
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
-import com.niezhiliang.simple.pay.vos.WxCallBackVO;
+import com.niezhiliang.simple.pay.vos.WxpayCallBackVO;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +18,11 @@ import java.io.InputStream;
  * @Date 2019/5/7 下午2:23
  */
 @Slf4j
-public class WxPayNotifyStrategy  implements PayStrategy<WxCallBackVO,HttpServletRequest> {
+public class WxpayNotifyStrategy implements PayStrategy<WxpayCallBackVO,HttpServletRequest> {
 
 
     @Override
-    public WxCallBackVO operate(HttpServletRequest request) {
+    public WxpayCallBackVO operate(HttpServletRequest request) {
 
         String xmlData = getRequestXml(request);
         log.info(xmlData);
@@ -31,14 +31,15 @@ public class WxPayNotifyStrategy  implements PayStrategy<WxCallBackVO,HttpServle
 
         WXPayConfig wxPayConfig = WXPayConfig.getInstance();
 
-        WxCallBackVO wxCallBackVO = new WxCallBackVO();
+        WxpayCallBackVO wxCallBackVO = new WxpayCallBackVO();
         wxCallBackVO.setAppId(wxPayOrderNotifyResult.getAppid());
         wxCallBackVO.setOutTradeNo(wxPayOrderNotifyResult.getOutTradeNo());
         wxCallBackVO.setTransactionId(wxPayOrderNotifyResult.getTransactionId());
         wxCallBackVO.setNonceStr(wxPayOrderNotifyResult.getNonceStr());
         wxCallBackVO.setMchId(wxPayOrderNotifyResult.getMchId());
         wxCallBackVO.setResultCode(wxPayOrderNotifyResult.getResultCode());
-        wxCallBackVO.setTotalFee(wxPayOrderNotifyResult.getTotalFee());
+        //金额是分，这里做了处理将分转换成了元
+        wxCallBackVO.setTotalFee(wxPayOrderNotifyResult.getTotalFee().floatValue()/100+"");
         wxCallBackVO.setTimeEnd(wxPayOrderNotifyResult.getTimeEnd());
 
         boolean result = SignUtils.checkSign(wxPayOrderNotifyResult,"MD5",wxPayConfig.getMchKey());

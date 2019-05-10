@@ -3,11 +3,13 @@ package com.niezhiliang.simple.pay.strategy;
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.APIURLENUMS;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
-import com.niezhiliang.simple.pay.dto.WXQrcodeDTO;
+import com.niezhiliang.simple.pay.dto.WxpayQrcodeDTO;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
-import com.niezhiliang.simple.pay.vos.WxPayQrcodeVO;
+import com.niezhiliang.simple.pay.vos.WxpayQrcodeVO;
 import lombok.extern.slf4j.Slf4j;
+
+import java.math.BigDecimal;
 
 /**
  * @Author NieZhiLiang
@@ -16,19 +18,19 @@ import lombok.extern.slf4j.Slf4j;
  * 微信二维码策略
  */
 @Slf4j
-public class WXQrcodeStrategy implements PayStrategy<WxPayQrcodeVO,WXQrcodeDTO>  {
+public class WxpayQrcodeStrategy implements PayStrategy<WxpayQrcodeVO,WxpayQrcodeDTO>  {
 
     @Override
-    public WxPayQrcodeVO operate(WXQrcodeDTO wxQrcodeDTO) {
+    public WxpayQrcodeVO operate(WxpayQrcodeDTO wxQrcodeDTO) {
 
         WXPayConfig wxPayConfig = WXPayConfig.getInstance();
-        wxQrcodeDTO.setAppid(wxPayConfig.getAppId());
-        wxQrcodeDTO.setMch_id(wxPayConfig.getMchId());
-        wxQrcodeDTO.setTrade_type(wxPayConfig.getTradeType());
-        wxQrcodeDTO.setNotify_url(wxPayConfig.getPayNotify());
-        wxQrcodeDTO.setTotal_fee(wxQrcodeDTO.getTotal_fee()*100);
-        wxQrcodeDTO.setNonce_str(wxQrcodeDTO.getOut_trade_no());
-        wxQrcodeDTO.setSpbill_create_ip("127.0.0.1");
+        wxQrcodeDTO.setAppId(wxPayConfig.getAppId());
+        wxQrcodeDTO.setMchId(wxPayConfig.getMchId());
+        wxQrcodeDTO.setTradeType(wxPayConfig.getTradeType());
+        wxQrcodeDTO.setNotifyUrl(wxPayConfig.getPayNotify());
+        wxQrcodeDTO.setTotalFee(new BigDecimal(wxQrcodeDTO.getTotalFee()).multiply(new BigDecimal("100")).intValue()+"");
+        wxQrcodeDTO.setNonceStr(wxQrcodeDTO.getOutTradeNo());
+        wxQrcodeDTO.setSpbillCreateIp("127.0.0.1");
         wxQrcodeDTO.setSign(null);
         wxQrcodeDTO.setSign(SignUtils.createSign(wxQrcodeDTO,"MD5", wxPayConfig.getMchKey(), new String[0]));
 
@@ -41,6 +43,6 @@ public class WXQrcodeStrategy implements PayStrategy<WxPayQrcodeVO,WXQrcodeDTO> 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return WxPayQrcodeVO.fromXML(responseContent,WxPayQrcodeVO.class);
+        return WxpayQrcodeVO.fromXML(responseContent,WxpayQrcodeVO.class);
     }
 }

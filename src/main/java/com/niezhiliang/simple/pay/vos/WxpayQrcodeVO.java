@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @XStreamAlias("xml")
 @Data
-public class WxPayQrcodeVO extends BaseWxPayResult implements Serializable {
+public class WxpayQrcodeVO extends BaseWxPayResult implements Serializable {
 
     /**
      * 预支付交易会话标识

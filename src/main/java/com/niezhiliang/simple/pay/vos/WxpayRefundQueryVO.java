@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Data
 @XStreamAlias("xml")
-public class WxRefundQueryVO extends BaseWxPayResult implements Serializable {
+public class WxpayRefundQueryVO extends BaseWxPayResult implements Serializable {
 
     /**
      * 商户订单号
@@ -25,7 +25,7 @@ public class WxRefundQueryVO extends BaseWxPayResult implements Serializable {
      * 退款金额(分)
      */
     @XStreamAlias("refund_fee")
-    private Integer refundFee;
+    private String refundFee;
 
     /**
      * 退款笔数

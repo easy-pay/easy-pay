@@ -9,7 +9,7 @@ import lombok.Data;
  * @Date 2019/4/26 上午11:26
  */
 @Data
-public class QrcodeVO {
+public class AlipayQrcodeVO {
 
     /**
      * 返回的状态码

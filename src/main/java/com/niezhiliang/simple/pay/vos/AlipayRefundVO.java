@@ -8,7 +8,7 @@ import lombok.Data;
  * @Date 2019/4/27 上午11:41
  */
 @Data
-public class RefundVO {
+public class AlipayRefundVO {
 
     /**
      * 返回的状态码

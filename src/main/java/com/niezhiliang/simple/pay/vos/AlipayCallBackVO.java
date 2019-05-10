@@ -7,11 +7,11 @@ import java.util.Date;
 /**
  * @Author NieZhiLiang
  * @Email nzlsgg@163.com
- * @Date 2019/4/27 下午3:34
+ * @Date 2019/4/27 下午3:34AliPayCallBackStrategy.java
  * 支付宝回调参数
  */
 @Data
-public class AliPayCallBackVO {
+public class AlipayCallBackVO {
 
     /**
      * 订单创建时间
@@ -71,6 +71,6 @@ public class AliPayCallBackVO {
     /**
      * 响应给支付宝的字符串
      */
-    private String shouldResonse;
+    private String shouldResonse = "FAILER";
 
 }

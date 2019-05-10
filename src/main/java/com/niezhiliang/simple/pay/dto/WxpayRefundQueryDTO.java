@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @XStreamAlias("xml")
 @Data
-public class WxRefundQueryDTO extends WXBaseDTO {
+public class WxpayRefundQueryDTO extends WxpayBaseDTO {
     /**
      * 商户交易订单号
      */
