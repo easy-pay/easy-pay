@@ -1,10 +1,11 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.alipay;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.dto.AlipayPcPayDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 
 /**

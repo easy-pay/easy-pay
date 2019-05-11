@@ -1,13 +1,13 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.wxpay;
 
 
 import com.niezhiliang.simple.pay.config.APIURLENUMS;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.dto.WxpayRefundDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
-import com.niezhiliang.simple.pay.vos.WxpayCloseOrderVO;
 import com.niezhiliang.simple.pay.vos.WxpayRefundVO;
 import lombok.extern.slf4j.Slf4j;
 

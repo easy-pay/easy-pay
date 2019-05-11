@@ -1,4 +1,4 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.alipay;
 
 
 import com.alibaba.fastjson.JSON;
@@ -9,6 +9,7 @@ import com.alipay.api.request.AlipayTradeRefundRequest;
 import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.dto.AlipayRefundDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import com.niezhiliang.simple.pay.vos.AlipayRefundVO;
 

@@ -1,9 +1,10 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.wxpay;
 
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.APIURLENUMS;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
 import com.niezhiliang.simple.pay.dto.WxpayRefundQueryDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
 import com.niezhiliang.simple.pay.vos.WxpayRefundQueryVO;

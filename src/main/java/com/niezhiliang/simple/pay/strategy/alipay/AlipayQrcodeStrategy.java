@@ -1,4 +1,4 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.alipay;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -8,6 +8,7 @@ import com.alipay.api.request.AlipayTradePrecreateRequest;
 import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.dto.AlipayQrcodeDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import com.niezhiliang.simple.pay.vos.AlipayQrcodeVO;
 import lombok.extern.slf4j.Slf4j;

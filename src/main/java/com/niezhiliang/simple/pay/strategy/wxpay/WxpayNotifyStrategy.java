@@ -1,9 +1,10 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.wxpay;
 
 
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyResult;
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.vos.WxpayCallBackVO;
 import lombok.extern.slf4j.Slf4j;
 

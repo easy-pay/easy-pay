@@ -1,9 +1,10 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.alipay;
 
 import com.alibaba.fastjson.JSON;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.niezhiliang.simple.pay.config.AlipayConfig;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import com.niezhiliang.simple.pay.vos.AlipayCallBackVO;
 
@@ -16,7 +17,7 @@ import java.util.Map;
  * @Date 2019/4/27 下午2:25
  * 支付回调策略
  */
-public class AliPayCallBackStrategy implements PayStrategy<AlipayCallBackVO,HttpServletRequest>{
+public class AliPayCallBackStrategy implements PayStrategy<AlipayCallBackVO,HttpServletRequest> {
 
     /**
      * 支付成功返回的状态值

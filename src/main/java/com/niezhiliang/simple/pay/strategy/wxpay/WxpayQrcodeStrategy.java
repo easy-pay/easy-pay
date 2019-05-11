@@ -1,9 +1,10 @@
-package com.niezhiliang.simple.pay.strategy;
+package com.niezhiliang.simple.pay.strategy.wxpay;
 
 import com.github.binarywang.wxpay.util.SignUtils;
 import com.niezhiliang.simple.pay.config.APIURLENUMS;
 import com.niezhiliang.simple.pay.config.WXPayConfig;
 import com.niezhiliang.simple.pay.dto.WxpayQrcodeDTO;
+import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.HttpUtils;
 import com.niezhiliang.simple.pay.utils.XmlUtils;
 import com.niezhiliang.simple.pay.vos.WxpayQrcodeVO;
@@ -18,7 +19,7 @@ import java.math.BigDecimal;
  * 微信二维码策略
  */
 @Slf4j
-public class WxpayQrcodeStrategy implements PayStrategy<WxpayQrcodeVO,WxpayQrcodeDTO>  {
+public class WxpayQrcodeStrategy implements PayStrategy<WxpayQrcodeVO,WxpayQrcodeDTO> {
 
     @Override
     public WxpayQrcodeVO operate(WxpayQrcodeDTO wxQrcodeDTO) {
