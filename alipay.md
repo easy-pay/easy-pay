@@ -29,7 +29,7 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/qrcode?totalAmount=0.01&subject=测试二维码支付&outTradeNo=999999999
 ```
 
@@ -84,7 +84,7 @@
 ```
 
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/pcpay?totalAmount=0.01&subject=测试网址支付&outTradeNo=888888&body=订单测试描述
 ```
 
@@ -183,7 +183,7 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/refund?refundAmount=0.01&refundReason=测试退款&outTradeNo=999999999
 ```
 

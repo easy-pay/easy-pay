@@ -31,11 +31,11 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/wx/qrcode?totalFee=0.01&body=测试微信二维码支付&outTradeNo=999999
 ```
 
-##### Easy-Pay支付宝二维码响应参数
+##### Easy-Pay微信二维码响应参数
 | 名称   | 类型 | 是否必须| 参数描述
 | :----: | :---: | :---: | :---:
 | returnCode  |String|  必须  |  返回状态码
@@ -142,7 +142,7 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/wx/closeOrder?outTradeNo=999999
 ```
 
@@ -197,7 +197,7 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/wx/refund?totalFee=0.01&refundFee=0.01&outTradeNo=999999999&outRefundNo=999999999
 ```
 ##### Easy-Pay微信退款响应参数
@@ -258,7 +258,7 @@
     }
 ```
 ##### 浏览器访问示例
-```js
+```html
 127.0.0.1:9999/wx/refundQuery?outTradeNo=999999999
 ```
 ##### Easy-Pay微信退款查询响应参数
