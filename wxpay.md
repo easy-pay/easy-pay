@@ -6,7 +6,7 @@
 
 - [微信订单关闭方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#订单关闭)
 
-- [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款(该api必须使用证书，必须放在项目根目录下，证书名称必须和配置文件中配置的一致))
+- [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款)
 
 - [微信退款查询方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款查询)
 
@@ -175,7 +175,9 @@
 ```
 
 
-#### 退款(该api必须使用证书，必须放在项目根目录下，证书名称必须和配置文件中配置的一致)
+#### 退款
+
+> 该api必须使用证书，必须放在项目根目录下，证书名称必须和配置文件中配置的一致
 
 ###### 请求参数
 
