@@ -3,7 +3,7 @@
 <img src="https://github.com/easy-pay/easy-pay/blob/master/logo.jpg" width="700" height="150" alt="logo"/>
 
 
-#### 注意事项
+### 注意事项
 
 - 如果配置文件使用`yml`格式，支付宝的`appID`的值请用双引号引起来，要不然在读取的时候会解析成`double`类型，该问题待解决
 
