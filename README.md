@@ -62,6 +62,6 @@ wxpay:
 
 ```
 
-- [支付宝使用文档](https://github.com/easy-pay/easy-pay/blob/master/alipay.md)
+- [支付宝支付使用文档](https://github.com/easy-pay/easy-pay/blob/master/alipay.md)
 
-- [微信使用文档](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md)
+- [微信支付使用文档](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md)
