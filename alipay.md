@@ -250,13 +250,13 @@
 ##### Easy-Pay响应示例
 ```json
 {
-  code: "10000",
-  msg: "Success",
-  out_trade_no: "88888",
-  total_amount: "0.01",
-  refund_amount: "0.01",
-  trade_no: "2019051122001416131036450964",
-  out_request_no: "88888"
+    "code": "10000", 
+    "msg": "Success", 
+    "out_trade_no": "88888", 
+    "total_amount": "0.01", 
+    "refund_amount": "0.01", 
+    "trade_no": "2019051122001416131036450964", 
+    "out_request_no": "88888"
 }
 ```
 
