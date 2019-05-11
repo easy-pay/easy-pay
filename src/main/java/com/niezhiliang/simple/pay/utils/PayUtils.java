@@ -2,10 +2,7 @@ package com.niezhiliang.simple.pay.utils;
 
 import com.niezhiliang.simple.pay.content.PayContent;
 import com.niezhiliang.simple.pay.dto.*;
-import com.niezhiliang.simple.pay.strategy.alipay.AliPayCallBackStrategy;
-import com.niezhiliang.simple.pay.strategy.alipay.AliPayPcPayStrategy;
-import com.niezhiliang.simple.pay.strategy.alipay.AliPayRefundStrategy;
-import com.niezhiliang.simple.pay.strategy.alipay.AlipayQrcodeStrategy;
+import com.niezhiliang.simple.pay.strategy.alipay.*;
 import com.niezhiliang.simple.pay.strategy.wxpay.*;
 import com.niezhiliang.simple.pay.vos.*;
 
@@ -47,6 +44,16 @@ public class PayUtils {
     public static AlipayRefundVO alipayRefund(AlipayRefundDTO alipayRefundDTO) {
         PayContent<AlipayRefundVO,AlipayRefundDTO> payContent = new PayContent(new AliPayRefundStrategy());
         return payContent.execute(alipayRefundDTO);
+    }
+
+    /**
+     * 支付宝退款查询接口
+     * @param refundQueryDTO
+     * @return
+     */
+    public static AlipayRefundQueryVO alipayRefundQuery(AlipayRefundQueryDTO refundQueryDTO) {
+        PayContent<AlipayRefundQueryVO,AlipayRefundQueryDTO> payContent = new PayContent(new AlipayRefundQueryStrategy());
+        return payContent.execute(refundQueryDTO);
     }
 
     /**

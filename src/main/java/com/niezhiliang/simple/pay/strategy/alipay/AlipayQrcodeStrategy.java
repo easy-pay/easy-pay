@@ -32,7 +32,6 @@ public class AlipayQrcodeStrategy implements PayStrategy<AlipayQrcodeVO,AlipayQr
         AlipayClient alipayClient = AlipayConfig.getAlipayClient();
         AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
         request.setBizContent(JsonUtils.jsonFormat(alipayQrcodeDTO));
-        request.setBizContent(JsonUtils.jsonFormat(alipayQrcodeDTO));
         request.setNotifyUrl(AlipayConfig.getInstance().getNotifyUrl());
         AlipayTradePrecreateResponse alipayTradePrecreateResponse = null;
         try {

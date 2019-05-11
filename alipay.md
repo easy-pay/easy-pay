@@ -216,3 +216,47 @@
     "send_back_fee": 0.01
 }
 ```
+***
+
+#### 退款查询
+
+
+###### 请求参数
+
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| outTradeNo  |String|  必须  |   商户订单号
+| outRequestNo  |String|  可选  |   退款单号，如果申请退款时没有传这个参数，则支付宝默认商户订单号和退款单号一样。就可以不传，如果退款也用的Easy-Pay的接口，则可以不传该参数
+
+##### 浏览器访问示例
+```html
+127.0.0.1:9999/refundQuery?outTradeNo=88888
+```
+
+##### Easy-Pay响应参数
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| code  |String|  必须  |  返回结果响应码,成功为`10000`，其余均为异常状态码
+| msg  |String|  必须  |   结果响应信息
+| out_trade_no  |String|  必须  |   商家订单号
+| total_amount  |String|  必须  |  订单金额
+| refund_amount  |String|  必须  |  退款金额
+| trade_no  |String|  必须  |  交易流水号
+| out_request_no  |String|  必须  |  退款流水号
+
+
+
+##### Easy-Pay响应示例
+```json
+{
+  code: "10000",
+  msg: "Success",
+  out_trade_no: "88888",
+  total_amount: "0.01",
+  refund_amount: "0.01",
+  trade_no: "2019051122001416131036450964",
+  out_request_no: "88888"
+}
+```
+
