@@ -12,7 +12,15 @@
 
 #### 使用前配置文件配置如下
 
-必须创建一个`application.yml`或者`application.properties`文件放在项目的根目录下
+- 在项目`pom.xml`文件中引入`Easy-Pay`的依赖，该依赖已经发布到了maven的中央仓库。
+
+```
+    <groupId>com.niezhiliang.simple.pay</groupId>
+    <artifactId>easy-pay</artifactId>
+    <version>1.0.0</version>
+```
+
+- 必须创建一个`application.yml`或者`application.properties`文件放在项目的根目录下
 
 这是yml格式的配置文件
 
