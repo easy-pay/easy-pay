@@ -34,7 +34,7 @@
 #支付宝支付参数配置
 alipay:
   #应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
-  appId: 
+  appId: '2018080866998'
   #商户私钥，您的PKCS8格式RSA2私钥
   privateKey: 
   publicKey: 
@@ -46,10 +46,11 @@ alipay:
   signType: RSA2
   #字符编码格式
   charset: utf-8
-  #支付宝网关
+  #支付宝网关(固定值，无需修改)
   gatewayUrl: 'https://openapi.alipay.com/gateway.do'
   #保存支付日志的地址(该功能待实现)
   logPath: /tmp/
+#微信支付参数配置
 wxpay:
   #公众号appid
   appId: 
@@ -57,11 +58,11 @@ wxpay:
   mchId: 
   #支付api安全密钥
   mchKey: 
-  #支付类型
+  #支付类型(固定值，无需修改)
   tradeType: 'NATIVE'
   #支付结果回调地址
   payNotify: 'http://www.niezhiliang.com:9999/wx/callback'
-  #退款结果回调
+  #退款结果回调(该值暂时还未使用到，因为退款我并没有做回调，待以后完善吧)
   refundNotify:
   #项目根目录根目录下的证书名称
   certName: 'wx_pay_cert.p12'
