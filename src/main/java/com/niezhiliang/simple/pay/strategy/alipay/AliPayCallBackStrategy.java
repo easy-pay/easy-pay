@@ -7,6 +7,7 @@ import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import com.niezhiliang.simple.pay.vos.AlipayCallBackVO;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @Date 2019/4/27 下午2:25
  * 支付回调策略
  */
+@Slf4j
 public class AliPayCallBackStrategy implements PayStrategy<AlipayCallBackVO,HttpServletRequest> {
 
     /**

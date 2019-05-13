@@ -16,6 +16,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -96,7 +98,6 @@ public class AlipayConfig {
         if (alipayConfig != null) {
            return alipayConfig;
         }
-        long start = System.currentTimeMillis();
         alipayConfig = new AlipayConfig();
         //获取更目录下的application.yml文件
         InputStream inputStream = AlipayConfig.class.getClassLoader().getResourceAsStream("application.yml");
@@ -116,7 +117,10 @@ public class AlipayConfig {
                 e.printStackTrace();
             }
         }
-        System.out.println("支付宝读取配置的时间："+(System.currentTimeMillis()-start));
+        //这里是解决读配置文件输出科学计数的问题，有了这段代码配置文件appId就不用双引号啦
+        if (alipayConfig.getAppId() != null) {
+            alipayConfig.setAppId(new BigDecimal(alipayConfig.getAppId()).toString());
+        }
         return alipayConfig;
     }
 
@@ -134,5 +138,10 @@ public class AlipayConfig {
 
         return alipayClient;
 
+    }
+
+    public static void main(String[] args) {
+        AlipayConfig alipayConfig =  AlipayConfig.getInstance();
+        System.out.println(alipayConfig);
     }
 }
