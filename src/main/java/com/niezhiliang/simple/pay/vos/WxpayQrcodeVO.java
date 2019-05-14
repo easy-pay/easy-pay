@@ -32,29 +32,4 @@ public class WxpayQrcodeVO extends BaseWxPayResult implements Serializable {
      */
     @XStreamAlias("code_url")
     private String codeUrl;
-
-
-    public String getPrepayId() {
-        return prepayId;
-    }
-
-    public void setPrepayId(String prepayId) {
-        this.prepayId = prepayId;
-    }
-
-    public String getTradeType() {
-        return tradeType;
-    }
-
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
-    }
-
-    public String getCodeUrl() {
-        return codeUrl;
-    }
-
-    public void setCodeUrl(String codeUrl) {
-        this.codeUrl = codeUrl;
-    }
 }

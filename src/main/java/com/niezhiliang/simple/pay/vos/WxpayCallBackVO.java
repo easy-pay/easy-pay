@@ -55,19 +55,4 @@ public class WxpayCallBackVO {
      * 支付完成时间
      */
     private String timeEnd;
-
-    @Override
-    public String toString() {
-        return "WxpayCallBackVO{" +
-                "outTradeNo='" + outTradeNo + '\'' +
-                ", transactionId='" + transactionId + '\'' +
-                ", nonceStr='" + nonceStr + '\'' +
-                ", appId='" + appId + '\'' +
-                ", mchId='" + mchId + '\'' +
-                ", resultCode='" + resultCode + '\'' +
-                ", totalFee=" + totalFee +
-                ", signResult=" + signResult +
-                ", timeEnd=" + timeEnd +
-                '}';
-    }
 }

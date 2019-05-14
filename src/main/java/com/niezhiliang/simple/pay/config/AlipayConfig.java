@@ -139,9 +139,4 @@ public class AlipayConfig {
         return alipayClient;
 
     }
-
-    public static void main(String[] args) {
-        AlipayConfig alipayConfig =  AlipayConfig.getInstance();
-        System.out.println(alipayConfig);
-    }
 }

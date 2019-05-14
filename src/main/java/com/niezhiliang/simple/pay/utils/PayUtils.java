@@ -92,8 +92,8 @@ public class PayUtils {
      * @param wxCloseOrderDTO
      * @return
      */
-    public static WxpayCloseOrderVO wxpayCloseOrder(WXCloseOrderDTO wxCloseOrderDTO) {
-        PayContent<WxpayCloseOrderVO,WXCloseOrderDTO> payContent = new PayContent(new WxpayCloseOrderStrategy());
+    public static WxpayCloseOrderVO wxpayCloseOrder(WxpayCloseOrderDTO wxCloseOrderDTO) {
+        PayContent<WxpayCloseOrderVO,WxpayCloseOrderDTO> payContent = new PayContent(new WxpayCloseOrderStrategy());
         return payContent.execute(wxCloseOrderDTO);
     }
 

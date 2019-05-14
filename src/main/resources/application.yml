@@ -1,0 +1,37 @@
+server:
+  port: 9999
+
+#支付宝支付参数配置
+alipay:
+  #应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
+  appId: '2018011101770628'
+  #商户私钥，您的PKCS8格式RSA2私钥
+  privateKey: MIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDhoGL6HkfkZiK01SWxTVRKzlokUtmSo4cS0AnOwUsOxKUz7hMun30rofOmI8rwppXX4WO9ZusZgXBR28aVxoeAKe0/gIfg/yLL03g84ojtdSP4zPQpt5k9NyN8pCOutjoPzEtrb34jhbtfLCz8mBUJ7PYhRAvwd8L/Rgyre5yuqrp7xrDwGs1PH4mwc1aGGegNP36Jqt8ydW6jChFZujBj3diZUgi0JvAYASVQy1uVCGiiS9MwcsUTNQYl4l0zImgm72ygNdtJSOO7qPi/IQll+lh/BcwoY/mOueU7KAc9mCYPm2sHjhyiAgeX4B4gc9gQ8iwNTEbOBTei2W9HvscfAgMBAAECggEAMUP6GK8f94ktrtqTvmEqNKNWH3RPuasnRT5TxeeC4hiiEfK8EYQVqr9UGkTafS2Crn6ybprYXttakSUx+WY+FAgTm7gO81wCVws3x+OXDnJzhlIKRkmmli1B/GdCu1Vi3Cw5k53mpw7+WMumjwkOHvq0y5K2IK2l0GOVRKRbE/Aedrm5VO86s+Z7z6mzUTKZH/IEdbe/+nnDuf8uk+GsXt5Qevn2AUN98Q6xh4I1ESKqq4YrrX2peYJysh+LbBciBnkZxSVNBZeRtC3MMdaCcHPaqutVY3ut/cqR61A+BKT7oVQxzJnb3mBBt+qPnUP12YsMp0KUQwaE3hvgMti8cQKBgQD63XNPIjIe6b2+42KrTmX/ES7BqCDPs3lh9cC48PYbhlRY7Fj6fWwJjcMUbSR+2kE1KD+Rgs1L3eEbB4j9Kl4f9OwuAFy/yVgvHmJ98BYUDUn1qutLq1EaEwMkrxdvgxTzYCncLJGxhE3X/t/covlaIb2LuAZvRKUnNBU8yVjZQwKBgQDmPq9DDujd2tLlNBUELzBYJAvLBL4Eb6z5UxtSs4o42XtXgiMmahUK4b834owf+G4vm/OVTOAiUMWVz48fo2T21y9bItEEsUToEb7VjR/92DyMf1e27guVW7eds0ahlncHNULGQ1wntDBWhbYFvfXNhCNgka6KVQ1YOvHhuise9QKBgCugOT5IvxibI3E/z9fkoV4zGcN5voMAPhqoByTiWpo8yQxRxcOB7jjXG1bBCDi7Md3RqwReD9+irVPrAoqsRIQgLrZtP7Pmitxe11f5WY2RJgx/9b1KBKeZKNHHVTcCP7F3RrBQW+HYFUV7wGh5Ow3Okkzq6suMz3+60fqpNTdLAn9McoO+wDSRdRaRA7n2qbRjj5Ra1DhDQNEt92obC4HZXlyVsZ/6IT7bXhkfdRkRhGsRY7Z83AmPW0I/e6sJ1javvsL6f5Tm+fTnGP1D6pe0sRdpjt6Q3nj6HnnY4q2Q+WSMACMrsTHn/OwPzlWhknEKy9TzO2u4goTrxqaJTEcFAoGBAL0e5FuEFfGpeDzU8CQlrmYrykKGZGkLZHK/SXDdPgtimAweKlbOQXtZzlHCDxyNWZhEvp1gGJWPxfRtmm5hL9hFhLnXQjYtn0LmBCNKa7ZTHgYj6+72epe8vOfzP46Y+EyDgU+NGKxFho9JLsrP+LrrMObfl1roPUFZnbMxotMh
+  publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhiJ06MB0lnFsx/EKzq8j0fn7DgPCdTm+7dyG+GnG23WnQTjXm5vVINoCXQQ8Yd50/RlZNnUw/2PlMRFM/O4Ur2K80UbS017wxWGeU+JA2I7TMF/+wrKJK3iuLfq7AvRimIdFHDrnOoS1p2SISOhsEFK/pJP64K9sV1tgA13BMa9OSRmc2G1267UzTkvym9dEB4fHLMeTSAUJj4HCMqINucYnfeb9UhUdogFrIViFIdPYiHcoeuaIBzWcDvyEBhfH4doGGcnOFrNGCoUKJrO5TA+sBO1C10LS/KwLaSyMb6bH5U2cZcNnt2EhN/uX0cKZK9g39r1vaLaU9h2aJPX24wIDAQAB
+  #服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+  notifyUrl: 'http://www.niezhiliang.com:9999/alipay/callback'
+  #页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+  returnUrl: 'http://www.niezhiliang.com:9999/success'
+  #签名方式
+  signType: RSA2
+  #字符编码格式
+  charset: utf-8
+  #支付宝网关
+  gatewayUrl: 'https://openapi.alipay.com/gateway.do'
+  #保存支付日志的地址
+  logPath: /tmp/
+wxpay:
+  #公众号appid
+  appId: wx9c2707e2093dee43
+  #商户id
+  mchId: '1495387912'
+  #支付api安全密钥
+  mchKey: 'BoMjHdrVXCXMCOJpYBMcS0M75dohiH8U'
+  #支付类型
+  tradeType: 'NATIVE'
+  #支付结果回调地址
+  payNotify: 'http://www.niezhiliang.com:9999/wx/callback'
+  #退款结果回调
+  refundNotify:
+  #根目录下的证书名称
+  certName: 'wx_pay_cert.p12'

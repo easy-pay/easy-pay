@@ -74,7 +74,6 @@ public class WXPayConfig {
         if (wxPayConfig != null) {
             return wxPayConfig;
         }
-        long start = System.currentTimeMillis();
         wxPayConfig = new WXPayConfig();
         //获取更目录下的application.yml文件
         InputStream inputStream = AlipayConfig.class.getClassLoader().getResourceAsStream("application.yml");
@@ -94,7 +93,6 @@ public class WXPayConfig {
                 JsonUtils.mapToObject(map,wxPayConfig);
             }
         }
-        System.out.println("微信读取配置的时间："+(System.currentTimeMillis()-start));
         return wxPayConfig;
     }
 }

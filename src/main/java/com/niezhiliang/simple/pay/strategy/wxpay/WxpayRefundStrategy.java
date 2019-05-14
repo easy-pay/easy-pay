@@ -24,7 +24,7 @@ public class WxpayRefundStrategy implements PayStrategy<WxpayRefundVO,WxpayRefun
 
     @Override
     public WxpayRefundVO operate(WxpayRefundDTO wxRefundDTO) {
-        log.info("微信退款商户订单号：{},微信退款商户退款单号：{}", wxRefundDTO.getOutTradeNo(),wxRefundDTO.getOutRefundNo());
+        log.debug("微信退款商户订单号：{},微信退款商户退款单号：{}", wxRefundDTO.getOutTradeNo(),wxRefundDTO.getOutRefundNo());
 
         WXPayConfig wxPayConfig = WXPayConfig.getInstance();
         wxRefundDTO.setAppId(wxPayConfig.getAppId());
@@ -40,7 +40,7 @@ public class WxpayRefundStrategy implements PayStrategy<WxpayRefundVO,WxpayRefun
         String responseContent = null;
         try {
             responseContent = HttpUtils.doRefund(APIURLENUMS.API_URL_REFUND.getUrl(),xml);
-            log.info("微信退款申请返回参数：{}", responseContent);
+            log.debug("微信退款申请返回参数：{}", responseContent);
         } catch (Exception e) {
             e.printStackTrace();
         }
