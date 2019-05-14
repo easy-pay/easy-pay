@@ -1,4 +1,4 @@
-### 微信支付调用文档
+### 微信支付调用文档(sdk version:3.2.0)
 
 - [微信二维码生成方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#二维码生成)
 

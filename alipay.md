@@ -1,4 +1,4 @@
-### 支付宝支付调用文档
+### 支付宝支付调用文档(sdk version:3.7.26.ALL)
 
 - [支付宝二维码生成方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#二维码生成)
 
