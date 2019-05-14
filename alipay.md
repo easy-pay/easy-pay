@@ -57,7 +57,8 @@
 
 #### 电脑网站支付
 
-> 跳到支付宝官网支付。该怎么跳转到支付宝官网，我自己也有点懵逼，这一块还在调整中。
+> 跳到支付宝官网支付。填充完订单数据以后，直接将浏览器的值替换成 http://127.0.0.1:9999/pcpay?totalAmount=0.01&subject=测试网址支付&outTradeNo=888888&body=订单测试描述
+就会自动跳转到支付宝的官网支付。如果有不明白的请参考我的`demo`
 
 ###### 描述
 
@@ -85,7 +86,13 @@
 
 ##### 浏览器访问示例
 ```html
-127.0.0.1:9999/pcpay?totalAmount=0.01&subject=测试网址支付&outTradeNo=888888&body=订单测试描述
+        填充完参数之后直接用这段代码来实现。
+        var oriderId = $("#oriderId").val();
+        var title = $("#title").val();
+        var price = $("#price").val();
+        var descript = $("#descript").val();
+
+        window.location.href="http://127.0.0.1:9999/alipay/pcpay?totalAmount="+price+"&subject="+title+"&outTradeNo="+oriderId+"&body="+descript;
 ```
 
 ##### Easy-Pay网址支付响应示例

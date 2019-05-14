@@ -40,9 +40,9 @@ alipay:
   notifyUrl: 'http://www.niezhiliang.com:9999/alipay/callback'
   #页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
   returnUrl: 'http://www.niezhiliang.com:9999/success'
-  #签名方式
+  #签名方式(固定值，无需修改)
   signType: RSA2
-  #字符编码格式
+  #字符编码格式(固定值，无需修改)
   charset: utf-8
   #支付宝网关(固定值，无需修改)
   gatewayUrl: 'https://openapi.alipay.com/gateway.do'
