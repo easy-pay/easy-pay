@@ -95,7 +95,7 @@
         window.location.href="http://127.0.0.1:9999/alipay/pcpay?totalAmount="+price+"&subject="+title+"&outTradeNo="+oriderId+"&body="+descript;
 ```
 
-![演示gif](https://github.com/easy-pay/easy-pay/blob/master/pcpay.gif)
+![演示gif](https://github.com/easy-pay/easy-pay/blob/master/doc/pcpay.gif)
 
 
 ##### Easy-Pay网址支付响应示例
