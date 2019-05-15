@@ -1,6 +1,6 @@
 ### Easy-Pay
 
-<img src="https://github.com/easy-pay/easy-pay/blob/master/logo.jpg" width="700" height="150" alt="logo"/>
+<img src="https://github.com/easy-pay/easy-pay/blob/master/doc/logo.jpg" width="700" height="150" alt="logo"/>
 
 
 ### 注意事项
