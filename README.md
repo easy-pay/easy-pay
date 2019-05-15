@@ -12,6 +12,10 @@
 
 - [SpringBoot使用Easy-Pay的Demo](https://github.com/easy-pay/spring-boot-easy-pay-demo)
 
+![演示gif](https://github.com/easy-pay/spring-boot-easy-pay-demo/blob/master/src/main/resources/demo.png)
+
+
+
 
 
 #### 使用前配置文件配置如下
