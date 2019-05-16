@@ -12,6 +12,7 @@ import com.niezhiliang.simple.pay.dto.AlipayRefundDTO;
 import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
 import com.niezhiliang.simple.pay.vos.AlipayRefundVO;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Author NieZhiLiang
@@ -19,6 +20,7 @@ import com.niezhiliang.simple.pay.vos.AlipayRefundVO;
  * @Date 2019/4/27 上午11:34
  * 退款策略
  */
+@Slf4j
 public class AliPayRefundStrategy implements PayStrategy<AlipayRefundVO,AlipayRefundDTO> {
 
     @Override
@@ -27,11 +29,13 @@ public class AliPayRefundStrategy implements PayStrategy<AlipayRefundVO,AlipayRe
         AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
         request.setBizContent(JsonUtils.jsonFormat(alipayRefundDTO));
         AlipayTradeRefundResponse response = null;
+        log.debug(JSON.toJSONString(request));
         try {
             response = alipayClient.execute(request);
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
+        log.debug(JSON.toJSONString(response));
         JSONObject refundResponse = JSON.parseObject(response.getBody());
         AlipayRefundVO refundVO = refundResponse.getObject("alipay_trade_refund_response",AlipayRefundVO.class);
         return refundVO;

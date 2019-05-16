@@ -54,4 +54,14 @@ public class AlipayRefundVO {
      * 退回金额
      */
     private Double send_back_fee;
+
+    /**
+     * 错误码
+     */
+    private String sub_code;
+
+    /**
+     * 错误信息
+     */
+    private String sub_msg;
 }

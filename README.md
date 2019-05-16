@@ -36,7 +36,7 @@
 #支付宝支付参数配置
 alipay:
   #应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
-  appId: '2018080866998'
+  appId: ''
   #商户私钥，您的PKCS8格式RSA2私钥
   privateKey: 
   publicKey: 
@@ -67,7 +67,7 @@ wxpay:
   #退款结果回调(该值暂时还未使用到，因为退款我并没有做回调，待以后完善吧)
   refundNotify:
   #项目根目录根目录下的证书名称(退款需要用到证书)
-  certName: 'wx_pay_cert.p12'
+  certName: 'xxx.p12'
 
 ```
 

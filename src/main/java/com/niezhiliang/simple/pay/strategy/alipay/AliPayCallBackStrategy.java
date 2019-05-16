@@ -45,7 +45,7 @@ public class AliPayCallBackStrategy implements PayStrategy<AlipayCallBackVO,Http
             boolean flag = AlipaySignature.rsaCheckV1(map,AlipayConfig.getInstance().getPublicKey() ,AlipayConfig.getInstance().getCharset(),
                     AlipayConfig.getInstance().getSignType());
             String json = JSON.toJSONString(map);
-            System.out.println(json);
+            log.debug(json);
             if (!flag) {
                throw new RuntimeException("Alipay payment callback sign check failed");
             }

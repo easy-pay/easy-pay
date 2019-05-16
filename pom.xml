@@ -4,6 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>easy-pay</name>
+    <url>http://maven.apache.org</url>
+    <description>一行代码，一行代码解决支付宝和微信的二维码生成，支付回调，退款等功能</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
     <groupId>com.niezhiliang.easy.pay</groupId>
     <artifactId>easy-pay</artifactId>
     <packaging>jar</packaging>
@@ -42,6 +51,18 @@
             <version>3.2.0</version>
         </dependency>
     </dependencies>
+
+    <developers>
+        <developer>
+            <name>Niezhiliang</name>
+            <id>niezhiliang</id>
+            <email>nzlsgg@163.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <build>
         <plugins>
@@ -109,5 +130,33 @@
             </plugin>
         </plugins>
     </build>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>http://www.gnu.org/licenses/agpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>alipay wxpay  tools</comments>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git://https://github.com/easy-pay/easy-pay.git</connection>
+        <developerConnection>scm:git:https://github.com/easy-pay/easy-pay.git</developerConnection>
+        <url>https://github.com/easy-pay/easy-pay</url>
+        <tag>v${project.version}</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <name>Maven Central Staging Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

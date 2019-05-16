@@ -37,6 +37,16 @@ public class PayUtils {
     }
 
     /**
+     * 支付宝关闭订单
+     * @param closeOrderDTO
+     * @return
+     */
+    public static AlipayCloseOrderVO AlipayCloseOrder(AlipayCloseOrderDTO closeOrderDTO) {
+        PayContent<AlipayCloseOrderVO,AlipayCloseOrderDTO> payContent = new PayContent(new AlipayCloseOrderStrategy());
+        return payContent.execute(closeOrderDTO);
+    }
+
+    /**
      * 支付宝退款接口
      * @param alipayRefundDTO
      * @return

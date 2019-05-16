@@ -33,11 +33,13 @@ public class AlipayRefundQueryStrategy implements PayStrategy<AlipayRefundQueryV
         }
         request.setBizContent(JsonUtils.jsonFormat(alipayRefundQueryDTO));
         AlipayTradeFastpayRefundQueryResponse response = null;
+        log.debug(JSON.toJSONString(request));
         try {
             response = alipayClient.execute(request);
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
+        log.debug(JSON.toJSONString(response));
         JSONObject refundResponse = JSON.parseObject(response.getBody());
 
         return refundResponse.getObject("alipay_trade_fastpay_refund_query_response",AlipayRefundQueryVO.class);

@@ -34,11 +34,13 @@ public class AlipayQrcodeStrategy implements PayStrategy<AlipayQrcodeVO,AlipayQr
         request.setBizContent(JsonUtils.jsonFormat(alipayQrcodeDTO));
         request.setNotifyUrl(AlipayConfig.getInstance().getNotifyUrl());
         AlipayTradePrecreateResponse alipayTradePrecreateResponse = null;
+        log.debug(JSON.toJSONString(request));
         try {
             alipayTradePrecreateResponse = alipayClient.execute(request);
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
+        log.debug(JSON.toJSONString(alipayTradePrecreateResponse));
         JSONObject qrcodeResponse = JSON.parseObject(alipayTradePrecreateResponse.getBody());
 
         AlipayQrcodeVO qrcodeVO = qrcodeResponse.getObject("alipay_trade_precreate_response",AlipayQrcodeVO.class);

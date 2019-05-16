@@ -31,6 +31,7 @@ public class WxpayRefundQueryStrategy implements PayStrategy<WxpayRefundQueryVO,
         wxRefundQueryDTO.setNonceStr(wxRefundQueryDTO.getOutTradeNo());
         wxRefundQueryDTO.setSign(SignUtils.createSign(wxRefundQueryDTO, "MD5", wxPayConfig.getMchKey(), new String[0]));
         String xml = XmlUtils.toXML(wxRefundQueryDTO);
+        log.debug(xml);
         String responseContent = null;
         try {
             responseContent = HttpUtils.doPost(APIURLENUMS.API_URL_REFUND_QUERY.getUrl(),xml);

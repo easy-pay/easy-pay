@@ -26,7 +26,7 @@ public class WxpayNotifyStrategy implements PayStrategy<WxpayCallBackVO,HttpServ
     public WxpayCallBackVO operate(HttpServletRequest request) {
 
         String xmlData = getRequestXml(request);
-        log.info(xmlData);
+        log.debug(xmlData);
         WxPayOrderNotifyResult wxPayOrderNotifyResult =
                 WxPayOrderNotifyResult.fromXML(xmlData,WxPayOrderNotifyResult.class);
 

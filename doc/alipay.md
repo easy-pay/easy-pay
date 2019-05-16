@@ -52,6 +52,19 @@
     "qr_code": "https://qr.alipay.com/bax07482nvqubviekjut60b2"
 }
 ```
+***
+
+#### 订单关闭
+
+###### 请求参数
+
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| outTradeNo  |String|  必须  |  商户订单号
+| operatorId  |String|  可选  |   卖家端自定义的的操作员 ID
+
+
 
 ***
 

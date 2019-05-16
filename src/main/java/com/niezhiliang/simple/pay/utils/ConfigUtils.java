@@ -24,7 +24,7 @@ public class ConfigUtils {
             InputStream inputStream = ConfigUtils.class.getClassLoader().getResourceAsStream("application.properties");
 
             if (inputStream == null) {
-                throw new FileNotFoundException("easy-pay : resources Folder do not contain file application.properties || application1.yml");
+                throw new FileNotFoundException("easy-pay : resources Folder do not contain file application.properties || application.yml");
             }
             Properties properties = new Properties();
             properties.load(inputStream);

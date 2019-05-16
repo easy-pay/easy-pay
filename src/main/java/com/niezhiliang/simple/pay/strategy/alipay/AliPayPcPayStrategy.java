@@ -1,5 +1,6 @@
 package com.niezhiliang.simple.pay.strategy.alipay;
 
+import com.alibaba.fastjson.JSON;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
@@ -7,6 +8,7 @@ import com.niezhiliang.simple.pay.config.AlipayConfig;
 import com.niezhiliang.simple.pay.dto.AlipayPcPayDTO;
 import com.niezhiliang.simple.pay.strategy.PayStrategy;
 import com.niezhiliang.simple.pay.utils.JsonUtils;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Author NieZhiLiang
@@ -14,6 +16,7 @@ import com.niezhiliang.simple.pay.utils.JsonUtils;
  * @Date 2019/4/27 下午3:53
  * PC端下单策略
  */
+@Slf4j
 public class AliPayPcPayStrategy implements PayStrategy<String,AlipayPcPayDTO> {
 
     /**
@@ -33,6 +36,7 @@ public class AliPayPcPayStrategy implements PayStrategy<String,AlipayPcPayDTO> {
         pcPreOrderDTO.setProductCode(FAST_INSTANT_TRADE_PAY);
         alipayRequest.setBizContent(JsonUtils.jsonFormat(pcPreOrderDTO));
         String form="";
+        log.debug(JSON.toJSONString(alipayRequest));
         try {
             /**
              * 调用SDK生成表单
@@ -41,6 +45,7 @@ public class AliPayPcPayStrategy implements PayStrategy<String,AlipayPcPayDTO> {
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
+        log.debug(form);
         return form;
     }
 }

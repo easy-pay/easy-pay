@@ -30,4 +30,14 @@ public class AlipayQrcodeVO {
      * 生成二维码的内容
      */
     private String qr_code;
+
+    /**
+     * 错误码
+     */
+    private String sub_code;
+
+    /**
+     * 错误信息
+     */
+    private String sub_msg;
 }

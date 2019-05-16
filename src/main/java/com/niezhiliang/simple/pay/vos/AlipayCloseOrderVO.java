@@ -5,45 +5,29 @@ import lombok.Data;
 /**
  * @Author NieZhiLiang
  * @Email nzlsgg@163.com
- * @Date 2019/5/11 下午2:31
+ * @Date 2019/5/15 下午2:23
  */
 @Data
-public class AlipayRefundQueryVO {
-
+public class AlipayCloseOrderVO {
     /**
-     * 状态码
+     * 返回的状态码
      */
     private String code;
 
     /**
-     * 提醒信息
+     * 返回的信息
      */
     private String msg;
 
     /**
-     * 商户交易流水号
+     * 交易的流水号
      */
     private String out_trade_no;
-
-    /**
-     * 订单总金额
-     */
-    private String total_amount;
-
-    /**
-     * 退款金额
-     */
-    private String refund_amount;
 
     /**
      * 支付宝交易流水号
      */
     private String trade_no;
-
-    /**
-     * 商户退款请求流水号
-     */
-    private String out_request_no;
 
     /**
      * 错误码

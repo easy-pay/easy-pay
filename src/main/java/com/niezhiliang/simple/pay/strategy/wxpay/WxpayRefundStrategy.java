@@ -36,7 +36,7 @@ public class WxpayRefundStrategy implements PayStrategy<WxpayRefundVO,WxpayRefun
         wxRefundDTO.setTotalFee(new BigDecimal(wxRefundDTO.getTotalFee()).multiply(new BigDecimal("100")).intValue()+"");
         wxRefundDTO.setSign(SignUtils.createSign(wxRefundDTO, "MD5", wxPayConfig.getMchKey(), new String[0]));
         String xml = XmlUtils.toXML(wxRefundDTO);
-        log.info(xml);
+        log.debug(xml);
         String responseContent = null;
         try {
             responseContent = HttpUtils.doRefund(APIURLENUMS.API_URL_REFUND.getUrl(),xml);
