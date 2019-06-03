@@ -8,6 +8,8 @@
 
 - [支付宝退款方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#退款)
 
+- [支付宝退款查询方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#退款查询)
+
 #### 二维码生成
 
 ###### 请求参数
