@@ -20,7 +20,7 @@
 
 #### 使用前配置文件配置如下
 
-- 在项目`pom.xml`文件中引入`Easy-Pay`的依赖，该依赖已经发布到了maven的中央仓库(还暂时未发布，忙完这阵子再发布)。
+- 在项目`pom.xml`文件中引入`Easy-Pay`的依赖，该依赖已经发布到了maven的中央仓库。
 
 ```
     <groupId>com.niezhiliang.simple.pay</groupId>
