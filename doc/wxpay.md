@@ -6,7 +6,7 @@
 
 - [微信订单关闭方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E8%AE%A2%E5%8D%95%E5%85%B3%E9%97%AD)
 
-- [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款)
+- [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E9%80%80%E6%AC%BE)
 
 - [微信退款查询方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款查询)
 
