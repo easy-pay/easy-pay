@@ -2,7 +2,7 @@
 
 - [支付宝二维码生成方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90)
 
-- [支付宝网站支付方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#电脑网站支付)
+- [支付宝网站支付方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E7%94%B5%E8%84%91%E7%BD%91%E7%AB%99%E6%94%AF%E4%BB%98)
 
 - [支付宝支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#支付回调)
 
