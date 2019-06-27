@@ -4,7 +4,7 @@
 
 - [微信支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%9B%9E%E8%B0%83)
 
-- [微信订单关闭方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#订单关闭)
+- [微信订单关闭方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E8%AE%A2%E5%8D%95%E5%85%B3%E9%97%AD)
 
 - [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款)
 
