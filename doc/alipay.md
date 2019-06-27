@@ -4,7 +4,7 @@
 
 - [支付宝网站支付方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E7%94%B5%E8%84%91%E7%BD%91%E7%AB%99%E6%94%AF%E4%BB%98)
 
-- [支付宝支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/alipay.md#支付回调)
+- [支付宝支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E6%94%AF%E4%BB%98%E5%9B%9E%E8%B0%83)
 
 - [支付宝退款方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E9%80%80%E6%AC%BE)
 
