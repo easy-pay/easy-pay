@@ -8,7 +8,7 @@
 
 - [微信退款方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E9%80%80%E6%AC%BE)
 
-- [微信退款查询方法](https://github.com/easy-pay/easy-pay/blob/master/wxpay.md#退款查询)
+- [微信退款查询方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E9%80%80%E6%AC%BE%E6%9F%A5%E8%AF%A2)
 
 
 #### 二维码生成
