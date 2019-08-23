@@ -2,6 +2,8 @@
 
 - [微信二维码生成方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90)
 
+- [微信H5支付方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90)
+
 - [微信支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%9B%9E%E8%B0%83)
 
 - [微信订单关闭方法](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md#%E8%AE%A2%E5%8D%95%E5%85%B3%E9%97%AD)
@@ -72,6 +74,77 @@
     "codeUrl": "weixin://wxpay/bizpayurl?pr=Wj2oCm7"
 }
 ```
+
+#### 微信H5支付下单
+
+##### 描述
+
+拿到`mwebUrl`后直接通过location.href=${mwebUrl}，spbillCreateIp必须是用户的真实ip，否则会报`商家参数格式有误，请联系商家解决`
+就能直接跳到微信支付的界面，这里需要注意一点的是配置的回调地址和微信支付商户中心H5支付配置的回调地址要一样，
+否则会报`商家存在未配置的参数，请联系商家解决`这个异常。如果链接唤起了微信支付的话，表示成功啦，支付回调我会再研究研究，今天时间来不及
+
+
+###### 请求参数
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| outTradeNo  |String|  必须  |   商户订单号
+| body  |String|  必须  |   订单描述
+| totalFee  |String|  必须  |   订单金额
+| spbillCreateIp  |String|  必须  |  当前支付用户的ip地址
+
+##### 调用示例
+
+```java
+    @RequestMapping(value = "h5pay")
+    public WxpayQrcodeVO wxQrcode(WxpayQrcodeDTO qrcodeDTO) {
+        //获取当前支付用户的ip地址
+        String ip = getIpAddr(request);
+        wxpayQrcodeDTO.setSpbillCreateIp(ip);
+        return PayUtils.wxpayQrcode(qrcodeDTO);
+    }
+```
+##### 浏览器访问示例
+```html
+127.0.0.1:9999/wx/h5pay?totalFee=0.01&body=测试微信二维码支付&outTradeNo=888888
+```
+
+##### Easy-Pay微信H5支付下单响应参数
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| returnCode  |String|  必须  |  返回状态码
+| returnMsg  |String|  必须  |   结果响应信息
+| resultCode  |String|  必须  |   业务结果状态码
+| errCode  |String|  否  |  错误状态码
+| errCodeDes  |String|  否  |  错误描述
+| appid  |String|  必须  |  公众账号ID
+| mchId  |String|  必须  |  商户ID
+| nonceStr  |String|  必须  |  随机字符串
+| subAppId  |String|  否  |  
+| subMchId  |String|  否  |  
+| sign  |String|  必须  |  对返回结果签名
+| xmlString  |String|  必须  | 微信响应未处理的xml结果
+| prepayId  |String|  必须  |  预支付交易会话标识
+| tradeType  |String|  必须  |  支付类型
+| mweb_url  |String|  必须  |  微信WAP支付跳转url
+
+##### Easy-Pay微信H5支付下单响应示例
+```json
+{
+    "returnCode": "SUCCESS",
+    "returnMsg": "OK",
+    "resultCode": "SUCCESS",
+    "appid": "xxxxx",
+    "mchId": "xxxxx",
+    "nonceStr": "6DcWkt7S6MdeKmhH",
+    "sign": "93F90EA69ABE3954E14D067D061C21CF",
+    "xmlString":"",
+    "prepayId": "wx2316363383065080d63201171221141900",
+    "tradeType": "MWEB",
+    "mwebUrl": "https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2316363383065080d63201171221141900&package=1137871333"
+}
+```
+
 
 #### 微信支付回调
 

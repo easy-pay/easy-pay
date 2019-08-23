@@ -127,4 +127,14 @@ public class PayUtils {
         return payContent.execute(wxRefundQueryDTO);
     }
 
+    /**
+     * 微信H5支付下单
+     * @param wxpayQrcodeDTO
+     * @return
+     */
+    public static WxpayH5CreateOrderVO wxH5CreateOrder(WxpayQrcodeDTO wxpayQrcodeDTO) {
+        PayContent<WxpayH5CreateOrderVO,WxpayQrcodeDTO> payContent = new PayContent(new WxpayH5CreateOrderStrategy());
+        return payContent.execute(wxpayQrcodeDTO);
+    }
+
 }
