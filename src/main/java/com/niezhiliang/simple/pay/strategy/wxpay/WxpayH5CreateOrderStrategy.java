@@ -35,11 +35,11 @@ public class WxpayH5CreateOrderStrategy implements PayStrategy<WxpayH5CreateOrde
         wxQrcodeDTO.setSign(SignUtils.createSign(wxQrcodeDTO,"MD5", wxPayConfig.getMchKey(), new String[0]));
 
         String xml = XmlUtils.toXML(wxQrcodeDTO);
-        log.debug("微信二维码下单请求参数：{}", xml);
+        log.debug("微信H5支付下单请求参数：{}", xml);
         String responseContent = null;
         try {
             responseContent = HttpUtils.doPost(APIURLENUMS.API_URL_QRCODE.getUrl(),xml);
-            log.debug("微信二维码下单返回参数：{}", responseContent);
+            log.debug("微信H5支付下单返回参数：{}", responseContent);
         } catch (Exception e) {
             e.printStackTrace();
         }
