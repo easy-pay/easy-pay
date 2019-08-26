@@ -2,6 +2,8 @@
 
 - [支付宝二维码生成方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90)
 
+- [支付宝H5支付方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#h5%E6%94%AF%E4%BB%98)
+
 - [支付宝网站支付方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E7%94%B5%E8%84%91%E7%BD%91%E7%AB%99%E6%94%AF%E4%BB%98)
 
 - [支付宝支付回调方法](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md#%E6%94%AF%E4%BB%98%E5%9B%9E%E8%B0%83)
@@ -84,7 +86,7 @@
 127.0.0.1:9999/h5pay?totalAmount=0.01&subject=测试二维码支付&outTradeNo=999999999&quitUrl=www.test.com
 ```
 
-##### Easy-Pay支付宝二维码响应示例
+##### Easy-Pay支付宝H5支付响应示例
 ```json
 <form name="punchout_form" method="post" action="https://openapi.alipay.com/gateway.do?charset=utf-8&method=alipay.trade.wap.pay&sign=NHQ2sRXF0fpAMhbUpWPzRBlgTGScl5bGrZu3DoRYk0COuCJ3m9DeX27jkgPvjSXK6%2FeCR1Lu9edDOqSJtS1O67CTXWvlOTyHC%2Fxd6hBJ5mt1K1ig4kaKvuAy1kBKJR3e7P7Zd6o5qZrrlofzu9DSQeHrTFCFgZCo7xImbA6JTCxu%2Bqkln9JpK1UiJ2hTGzTLEljwsfvFeG6siuG8ocGjVLOzuMNtWN60FPJH9wiztq5PsKw6g%2BG659PsMNlTjfILI07dke3mfHgX8HPG1elnQaImz0Jqa9qAPzBw6v4OjKRZN1qKkDNACK7lwnOW1DsaAl22omqRC3PIk3%2Bsin142A%3D%3D&version=1.0&app_id=2018011101770628&sign_type=RSA2&timestamp=2019-08-26+15%3A16%3A18&alipay_sdk=alipay-sdk-java-3.7.26.ALL&format=JSON">
 <input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;1566803732815&quot;,&quot;product_code&quot;:&quot;QUICK_WAP_WAY&quot;,&quot;total_amount&quot;:&quot;0.01&quot;,&quot;quit_url&quot;:&quot;www.baidu.com&quot;,&quot;subject&quot;:&quot;测试支付&quot;}">
@@ -92,20 +94,6 @@
 </form>
 <script>document.forms[0].submit();</script>
 ```
-
-***
-
-#### 订单关闭
-
-###### 请求参数
-
-
-| 名称   | 类型 | 是否必须| 参数描述
-| :----: | :---: | :---: | :---:
-| outTradeNo  |String|  必须  |  商户订单号
-| operatorId  |String|  可选  |   卖家端自定义的的操作员 ID
-
-
 
 ***
 
@@ -164,6 +152,34 @@
   <script>document.forms[0].submit();</script>
  </body>
 </html>
+```
+***
+
+
+
+#### 订单关闭
+
+###### 请求参数
+
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| outTradeNo  |String|  必须  |  商户订单号
+| operatorId  |String|  可选  |   卖家端自定义的的操作员 ID
+
+##### 调用示例
+
+```java
+    @RequestMapping(value = "closeorder")
+    public AlipayCloseOrderVO closeorder(AlipayCloseOrderDTO alipayCloseOrderDTO) {
+
+        return PayUtils.AlipayCloseOrder(alipayCloseOrderDTO);
+    }
+```
+
+##### 浏览器访问示例
+```html
+127.0.0.1:9999/closeorder?outTradeNo=123456&operatorId=admin
 ```
 ***
 
