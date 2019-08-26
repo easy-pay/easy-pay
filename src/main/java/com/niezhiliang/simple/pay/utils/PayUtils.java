@@ -37,6 +37,15 @@ public class PayUtils {
     }
 
     /**
+     * 支付宝H5支付下单方式
+     * @return
+     */
+    public static String alipayH5Pay(AliPayH5PayDTO aliPayH5PayDTO){
+        PayContent<String,AliPayH5PayDTO> payContent = new PayContent(new AlipayH5PayStrategy());
+        return payContent.execute(aliPayH5PayDTO);
+    }
+
+    /**
      * 支付宝关闭订单
      * @param closeOrderDTO
      * @return

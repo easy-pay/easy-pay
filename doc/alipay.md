@@ -56,6 +56,45 @@
 ```
 ***
 
+#### H5支付
+
+> 通过调用h5支付的方式，获取到响应结果后，直接将结果返回给前端界面，前端通过` document.write(data)` 写到上下文中，就会把
+支付页面渲染出来，自动调用本地的支付宝app来进行支付操作。
+
+###### 请求参数
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| subject  |String|  必须  |   订单标题
+| outTradeNo  |String|  必须  |  商户订单号
+| totalAmount  |String|  必须  |  订单金额
+| quitUrl  |String|  必须  |  支付途中退出返回的商户页面
+
+##### 调用示例
+
+```java
+    @RequestMapping(value = "h5pay")
+    public String h5pay(AliPayH5PayDTO aliPayH5PayDTO) {
+
+        return PayUtils.alipayH5Pay(aliPayH5PayDTO);
+    }
+```
+##### 浏览器访问示例
+```html
+127.0.0.1:9999/h5pay?totalAmount=0.01&subject=测试二维码支付&outTradeNo=999999999&quitUrl=www.test.com
+```
+
+##### Easy-Pay支付宝二维码响应示例
+```json
+<form name="punchout_form" method="post" action="https://openapi.alipay.com/gateway.do?charset=utf-8&method=alipay.trade.wap.pay&sign=NHQ2sRXF0fpAMhbUpWPzRBlgTGScl5bGrZu3DoRYk0COuCJ3m9DeX27jkgPvjSXK6%2FeCR1Lu9edDOqSJtS1O67CTXWvlOTyHC%2Fxd6hBJ5mt1K1ig4kaKvuAy1kBKJR3e7P7Zd6o5qZrrlofzu9DSQeHrTFCFgZCo7xImbA6JTCxu%2Bqkln9JpK1UiJ2hTGzTLEljwsfvFeG6siuG8ocGjVLOzuMNtWN60FPJH9wiztq5PsKw6g%2BG659PsMNlTjfILI07dke3mfHgX8HPG1elnQaImz0Jqa9qAPzBw6v4OjKRZN1qKkDNACK7lwnOW1DsaAl22omqRC3PIk3%2Bsin142A%3D%3D&version=1.0&app_id=2018011101770628&sign_type=RSA2&timestamp=2019-08-26+15%3A16%3A18&alipay_sdk=alipay-sdk-java-3.7.26.ALL&format=JSON">
+<input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;1566803732815&quot;,&quot;product_code&quot;:&quot;QUICK_WAP_WAY&quot;,&quot;total_amount&quot;:&quot;0.01&quot;,&quot;quit_url&quot;:&quot;www.baidu.com&quot;,&quot;subject&quot;:&quot;测试支付&quot;}">
+<input type="submit" value="立即支付" style="display:none" >
+</form>
+<script>document.forms[0].submit();</script>
+```
+
+***
+
 #### 订单关闭
 
 ###### 请求参数
