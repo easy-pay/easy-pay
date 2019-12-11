@@ -65,6 +65,7 @@ wxpay:
 
 ```
 
+### 文档
 
 - [使用Easy-Pay的Demo](https://github.com/easy-pay/spring-boot-easy-pay-demo)
 
