@@ -10,16 +10,6 @@
 - 如果只想使用支付宝或微信`其中一方`支付方式，配置文件只需要配置微信或支付宝的配置无需两个支付方式都配置
 
 
-### 各种框架使用Easy-Pay的Demo
-
-- [SpringBoot使用Easy-Pay的Demo](https://github.com/easy-pay/spring-boot-easy-pay-demo)
-
-![演示gif](https://github.com/easy-pay/spring-boot-easy-pay-demo/blob/master/src/main/resources/demo.png)
-
-
-
-
-
 #### 使用前配置文件配置如下
 
 - 在项目`pom.xml`文件中引入`Easy-Pay`的依赖，该依赖已经发布到了maven的中央仓库。
@@ -74,6 +64,9 @@ wxpay:
   certName: 'xxx.p12'
 
 ```
+
+
+- [使用Easy-Pay的Demo](https://github.com/easy-pay/spring-boot-easy-pay-demo)
 
 - [支付宝支付使用文档](https://github.com/easy-pay/easy-pay/blob/master/doc/alipay.md)
 
