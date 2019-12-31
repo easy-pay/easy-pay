@@ -2,6 +2,8 @@
 
 <img src="https://github.com/easy-pay/easy-pay/blob/master/doc/logo.jpg" width="700" height="150" alt="logo"/>
 
+## [新版本开发中，请切换到1.0.2版本](https://github.com/easy-pay/easy-pay/tree/v1.0.2)
+
 ### 注意事项
 
 - 如果只想使用支付宝或微信`其中一方`支付方式，配置文件只需要配置微信或支付宝的配置无需两个支付方式都配置
