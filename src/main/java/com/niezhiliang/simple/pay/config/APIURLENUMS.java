@@ -1,9 +1,14 @@
 package com.niezhiliang.simple.pay.config;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @Author NieZhiLiang
  * @Email nzlsgg@163.com
  */
+@Getter
+@AllArgsConstructor
 public enum APIURLENUMS {
     //统一下单
     API_URL_QRCODE("https://api.mch.weixin.qq.com/pay/unifiedorder"),
@@ -15,12 +20,4 @@ public enum APIURLENUMS {
     API_URL_CLOSE_ORDER("https://api.mch.weixin.qq.com/pay/closeorder"),
     ;
     private String url;
-
-    APIURLENUMS(String url) {
-        this.url = url;
-    }
-
-    public String getUrl() {
-        return url;
-    }
 }

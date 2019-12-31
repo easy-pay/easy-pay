@@ -36,14 +36,6 @@ alipay:
   notifyUrl: 'http://www.niezhiliang.com:9999/alipay/callback'
   #页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
   returnUrl: 'http://www.niezhiliang.com:9999/success'
-  #签名方式(固定值，无需修改)
-  signType: RSA2
-  #字符编码格式(固定值，无需修改)
-  charset: utf-8
-  #支付宝网关(固定值，无需修改)
-  gatewayUrl: 'https://openapi.alipay.com/gateway.do'
-  #保存支付日志的地址(该功能待实现)
-  logPath: /tmp/
 #微信支付参数配置
 wxpay:
   #公众号appid
@@ -52,8 +44,6 @@ wxpay:
   mchId: 
   #支付api安全密钥
   mchKey: 
-  #支付类型(固定值，无需修改)
-  tradeType: 'NATIVE'
   #支付结果回调地址
   payNotify: 'http://www.niezhiliang.com:9999/wx/callback'
   #退款结果回调(该值暂时还未使用到，因为退款我并没有做回调，待以后完善吧)

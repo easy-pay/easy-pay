@@ -1,24 +1,16 @@
 package com.niezhiliang.simple.pay.config;
 
-import com.niezhiliang.simple.pay.utils.ConfigUtils;
-import com.niezhiliang.simple.pay.utils.JsonUtils;
+import com.niezhiliang.simple.pay.annos.Must;
 import lombok.Data;
 import lombok.ToString;
-import org.ho.yaml.Yaml;
-
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author NieZhiLiang
  * @Email nzlsgg@163.com
- * @Date 2019/4/29 下午1:51
+ * @Date 2019/12/31 下午17:47
  */
 @Data
 @ToString
-@FieldAlias(alias = "wxpay")
 public class WXPayConfig {
 
     private WXPayConfig() {
@@ -31,43 +23,41 @@ public class WXPayConfig {
     /**
      * 众号appid
      */
-    @FieldAlias(alias = "appId",must = true)
+    @Must
     private String appId;
 
     /**
      * 商户id
      */
-    @FieldAlias(alias = "mchId",must = true)
+    @Must
     private String mchId;
 
     /**
      * 付api安全密钥
      */
-    @FieldAlias(alias = "mchKey",must = true)
+    @Must
     private String mchKey;
 
     /**
      * 支付类型
      */
-    @FieldAlias(alias = "tradeType",must = true)
-    private String tradeType;
+    @Must
+    private String tradeType = "NATIVE";
 
     /**
      * 支付回调
      */
-    @FieldAlias(alias = "payNotify",must = true)
+    @Must
     private String payNotify;
 
     /**
      * 退款回调
      */
-    @FieldAlias(alias = "payNotify",must = false)
     private String refundNotify;
 
     /**
      * 证书地址
      */
-    @FieldAlias(alias = "certName",must = true)
     private String certName;
 
     public static WXPayConfig getInstance() {
@@ -75,23 +65,13 @@ public class WXPayConfig {
             return wxPayConfig;
         }
         wxPayConfig = new WXPayConfig();
-        //获取更目录下的application.yml文件
-        InputStream inputStream = AlipayConfig.class.getClassLoader().getResourceAsStream("application.yml");
-        //如果没有yml文件则去读取properties文件
-        if (inputStream == null) {
-            ConfigUtils.readProperties(wxPayConfig);
-        } else {
-            Map father = null;
-            try {
-                father = Yaml.loadType(inputStream, HashMap.class);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (father.containsKey(WXPAY_PREFIX)) {
-                //填充微信支付配置
-                Map<String,String> map  = (Map<String, String>) father.get(WXPAY_PREFIX);
-                JsonUtils.mapToObject(map,wxPayConfig);
-            }
+        try {
+            //参数填充
+            ConfFileReader.fillParams(wxPayConfig,WXPAY_PREFIX);
+            //参数校验
+            ConfFileReader.chkParams(wxPayConfig,WXPAY_PREFIX);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return wxPayConfig;
     }
