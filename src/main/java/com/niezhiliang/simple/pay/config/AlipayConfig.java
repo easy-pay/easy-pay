@@ -87,11 +87,11 @@ public class AlipayConfig {
         try {
             //参数填充
             ConfFileReader.fillParams(alipayConfig,ALIPAY_PREFIX);
+            ConfFileReader.chkParams(alipayConfig,ALIPAY_PREFIX);
             //这里是解决读配置文件输出科学计数的问题，有了这段代码配置文件appId就不用双引号啦
             if (alipayConfig.getAppId() != null) {
                 alipayConfig.setAppId(new BigDecimal(alipayConfig.getAppId()).toString());
             }
-            ConfFileReader.chkParams(alipayConfig,ALIPAY_PREFIX);
         } catch (Exception e) {
             e.printStackTrace();
         }
