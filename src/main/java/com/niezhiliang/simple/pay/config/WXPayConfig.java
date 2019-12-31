@@ -67,7 +67,7 @@ public class WXPayConfig {
     /**
      * 证书地址
      */
-    @FieldAlias(alias = "payNotify",must = true)
+    @FieldAlias(alias = "certName",must = true)
     private String certName;
 
     public static WXPayConfig getInstance() {
