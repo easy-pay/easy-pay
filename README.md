@@ -2,7 +2,7 @@
 
 <img src="https://github.com/easy-pay/easy-pay/blob/master/doc/logo.jpg" width="700" height="150" alt="logo"/>
 
-## [新版本开发中，请切换到1.0.2版本](https://github.com/easy-pay/easy-pay/tree/v1.0.2)
+## [新版本开发中，使用请切换到稳定版本1.0.2](https://github.com/easy-pay/easy-pay/tree/v1.0.2)
 
 ### 注意事项
 
