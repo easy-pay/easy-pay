@@ -2,6 +2,8 @@
 
 <img src="https://github.com/easy-pay/easy-pay/blob/master/doc/logo.jpg" width="700" height="150" alt="logo"/>
 
+> 如果该支付的jar包帮助到了您，那就麻烦动动小手，给本项目点个星，支持一下。您的小星星就是我继续升级迭代的动力。
+
 ### 注意事项
 
 - 如果只想使用支付宝或微信`其中一方`支付方式，配置文件只需要配置微信或支付宝的配置无需两个支付方式都配置
