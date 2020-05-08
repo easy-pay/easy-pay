@@ -1,6 +1,6 @@
 # Easy-Pay（[点击跳转到spring-boot-starter版本](https://github.com/easy-pay/spring-boot-easy-pay)）
 
-<img src="https://github.com/easy-pay/easy-pay/blob/master/doc/logo.jpg" width="700" height="150" alt="logo"/>
+<img src="https://suyu-img.oss-cn-shenzhen.aliyuncs.com/logo.jpg" width="700" height="150" alt="logo"/>
 
 
 
