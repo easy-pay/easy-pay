@@ -68,4 +68,4 @@ wxpay:
 
  有问题可以`微信`我
 
-<img width="200" height="200" src="https://github.com/easy-pay/spring-boot-easy-pay/blob/master/docs/wx.png"/>
+<img width="200" height="200" src="https://suyu-img.oss-cn-shenzhen.aliyuncs.com/1271588930319_.pic.jpg"/>
