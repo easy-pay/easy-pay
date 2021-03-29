@@ -65,7 +65,3 @@ wxpay:
 - [微信支付使用文档](https://github.com/easy-pay/easy-pay/blob/master/doc/wxpay.md)
 
 ### 其它
-
- 有问题可以`微信`我
-
-<img width="200" height="200" src="https://suyu-img.oss-cn-shenzhen.aliyuncs.com/1271588930319_.pic.jpg"/>
